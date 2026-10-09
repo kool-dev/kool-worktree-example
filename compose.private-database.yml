@@ -1,0 +1,10 @@
+# Apply with COMPOSE_FILE=docker-compose.yml:compose.private-database.yml.
+# Also add database to workspaces in kool.yml.
+services:
+  app:
+    environment:
+      DB_HOST: database
+  database:
+    # Keep this DB off the global network to avoid ambiguous shared aliases.
+    networks: !override
+      local: {}

@@ -1,0 +1,19 @@
+{
+  "name": "kool-worktree-example",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev:app": "node --watch server.js",
+    "dev": "vite",
+    "build": "vite build",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "pg": "^8.16.3",
+    "redis": "^5.9.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.0"
+  }
+}

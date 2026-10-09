@@ -1,0 +1,15 @@
+workspaces:
+  - app
+  - node
+
+proxy:
+  domain: demo.localhost
+  routes:
+    app:
+      ports: ["80:8080"]
+    node:
+      ports: ["3001:3001"]
+
+scripts:
+  test: kool exec app npm test
+  build: kool exec node npm run build

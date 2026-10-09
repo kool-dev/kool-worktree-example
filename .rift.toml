@@ -1,0 +1,7 @@
+version = 1
+
+[[hooks.postcreate]]
+run = "kool start"
+
+[[hooks.preremove]]
+run = "kool stop"

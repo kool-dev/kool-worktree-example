@@ -1,0 +1,4 @@
+body { font: 18px system-ui; background: #f4f6fb; color: #152239; margin: 3rem auto; max-width: 760px; padding: 1rem; }
+main { background: white; border-radius: 16px; padding: 2rem; }
+pre { background: #edf1f7; padding: 1rem; overflow: auto; }
+button { padding: .8rem; cursor: pointer; }
