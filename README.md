@@ -123,6 +123,7 @@ From the original project, `kool stop` without service arguments stops its activ
 - **Address already in use:** Caddy owns the configured listen ports; stop a conflicting non-Kool proxy or change both `kool.yml` and public-origin/HMR configuration together.
 - **Old dependencies after a branch switch:** restart that workspace's services; startup runs `npm ci` from its own lockfile.
 - **Unknown workspace/proxy config:** verify the Kool binary on `PATH` includes this feature.
+- **502 with a long project/workspace name:** the current feature branch can generate a backend DNS alias longer than 63 characters. Use a shorter checkout/workspace directory name until Kool fixes alias length handling.
 
 ## Local checks (optional Node 22+)
 
@@ -133,3 +134,10 @@ npm run build
 docker compose config --quiet
 COMPOSE_FILE=docker-compose.yml:compose.private-database.yml docker compose config --quiet
 ```
+
+Live Docker checks also exercised original/worktree routing, a shared counter and
+Redis connection, a Vite WebSocket connection and workspace-only reload event,
+workspace-local tests/build, the private database override, and stopping a
+workspace while retaining the original and unrelated proxy routes. Rift's hook
+configuration is included; creation/removal through the Rift CLI has not been
+exercised in this verification.
